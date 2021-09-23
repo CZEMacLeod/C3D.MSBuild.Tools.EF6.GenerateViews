@@ -22,8 +22,8 @@
     <Copyright>© Cloud3D Ltd. All rights reserved.</Copyright>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageLicensePath>$(MSBuildThisFileDirectory)$(PackageLicenseFile)</PackageLicensePath>
-    <PackageProjectUrl>https://github.com/CZEMacLeod/MSBuild.SDK.SystemWeb</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/CZEMacLeod/MSBuild.SDK.SystemWeb.git</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/CZEMacLeod/C3D.MSBuild.Tools.EF6.GenerateViews</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/CZEMacLeod/C3D.MSBuild.Tools.EF6.GenerateViews.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
