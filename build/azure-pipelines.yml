@@ -107,7 +107,7 @@ steps:
 - task: CopyFiles@2
   displayName: Create nuget publish config
   inputs:
-    sourceFolder: $(Build.SourcesDirectory)
+    sourceFolder: $(Build.SourcesDirectory)/build
     contents: 'nuget.publish.config'
     targetFolder: $(Build.ArtifactStagingDirectory)
 
