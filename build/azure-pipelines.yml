@@ -56,7 +56,7 @@ steps:
   displayName: 'Install Cert'
   inputs:
     targetType: filePath
-    filePath: 'InstallCert.ps1'
+    filePath: 'build/InstallCert.ps1'
     arguments: '-pfxpath $(app_pfx.secureFilePath) -password $(pfx_password)'
 
 - task: NuGetToolInstaller@0
@@ -183,6 +183,6 @@ steps:
   displayName: 'Remove Cert'
   inputs:
     targetType: filePath
-    filePath: 'RemoveCert.ps1'
+    filePath: 'build/RemoveCert.ps1'
     arguments: '-pfxpath $(app_pfx.secureFilePath) -password $(pfx_password)'
   condition: always()
