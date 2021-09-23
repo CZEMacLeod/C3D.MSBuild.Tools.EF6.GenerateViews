@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(NuGetPackageRoot)' == ''">
+    <NuGetPackageRoot>$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NugetPackagesPath Condition="'$(NuGetPackageRoot)' != ''">$(NuGetPackageRoot)</NugetPackagesPath>
+    <NugetPackagesPath Condition="'$(NugetPackagesPath)' == ''">$([System.IO.Path]::GetFullPath($([System.IO.Path]::Combine($(MSBuildThisFileDirectory),'..\..\'))))</NugetPackagesPath>
+
+    <EntityFramework6ViewGeneratorPath Condition="'$(MSBuildRuntimeType)'=='Full'">$([System.IO.Path]::GetFullPath($([System.IO.Path]::Combine($(MSBuildThisFileDirectory),'net472\'))))</EntityFramework6ViewGeneratorPath>
+    <EntityFramework6ViewGeneratorPath Condition="'$(MSBuildRuntimeType)'=='Core'">$([System.IO.Path]::GetFullPath($([System.IO.Path]::Combine($(MSBuildThisFileDirectory),'netstandard2.1\')))) </EntityFramework6ViewGeneratorPath>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(BuildingInsideVisualStudio)'=='true'">
+    <AvailableItemName Include="EntityView" />
+  </ItemGroup>
+</Project>

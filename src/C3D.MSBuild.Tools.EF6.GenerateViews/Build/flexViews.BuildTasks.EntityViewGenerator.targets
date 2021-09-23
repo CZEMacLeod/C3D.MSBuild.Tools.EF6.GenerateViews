@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <UsingTask AssemblyFile="$(EntityFramework6ViewGeneratorPath)\C3D.MSBuild.Tools.EF6.GenerateViews.dll" TaskName="C3D.MSBuild.Tools.EF6.Tasks.EntityViewGenerator"/>
+
+  <PropertyGroup>
+    <EntityFramework6ViewGeneratorOutputDir Condition="'$(EntityFramework6ViewGeneratorOutputDir)'==''">$([MSBuild]::EnsureTrailingSlash($(IntermediateOutputPath)))EntityViews</EntityFramework6ViewGeneratorOutputDir>
+    <CompileDependsOn>EntityFramework6ViewGeneratorTarget;$(CompileDependsOn)</CompileDependsOn>
+    <EntityFramework6ViewGeneratorDebug Condition="'$(EntityFramework6ViewGeneratorDebug)'==''">false</EntityFramework6ViewGeneratorDebug>
+  </PropertyGroup>
+
+  <Target Name="EntityFramework6ViewGeneratorTarget" Condition="'@(EntityView)'!=''">
+    <Message Text="EntityView: @(EntityView)" Importance="high" />
+    <MakeDir Directories="$(EntityFramework6ViewGeneratorOutputDir)" ContinueOnError="true" />
+    <C3D.MSBuild.Tools.EF6.Tasks.EntityViewGenerator
+      SourceFiles="@(EntityView)"
+      OutputDirectory="$(EntityFramework6ViewGeneratorOutputDir)"
+      AssemblyName="$(AssemblyName)"
+      Language="$(Language)"
+      DefaultNamespace="$(RootNamespace)"
+      Debug="$(EntityFramework6ViewGeneratorDebug)"
+      >
+      <Output TaskParameter="SourceFile" ItemName="_EntityView" />
+      <Output TaskParameter="OutputFile" ItemName="_EntityViewCompile" />
+    </C3D.MSBuild.Tools.EF6.Tasks.EntityViewGenerator>
+    <Message Text="@(_EntityView) -> @(_EntityViewCompile)" Importance="high" />
+    <ItemGroup>
+      <Compile Include="@(_EntityViewCompile)" Condition="EXISTS('%(FullPath)')" />
+      <FileWrites Include="@(_EntityViewCompile)" Condition="EXISTS('%(FullPath)')" />
+    </ItemGroup>
+  </Target>
+</Project>
