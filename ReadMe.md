@@ -26,7 +26,7 @@ If you are using Code-First migrations, you can add the following to automatical
 ```xml
   <ItemGroup>
     <EntityView Include="Migrations\**\*.edmx">
-      <CustomToolNamespace>GSHydro.CertificateManager.Models.DAL</CustomToolNamespace>
+      <CustomToolNamespace>MyApplication.Models.DAL</CustomToolNamespace>
     </EntityView>
   </ItemGroup>
 ```
@@ -38,7 +38,7 @@ If you are using Code-First migrations, you can add the following to automatical
 ## Known Items
 
 * `EntityView` - One or more edmx files used to generate the Views. Only the latest (alphabetically last) file is used.
-** `CustomToolNamespace` - Property of the `EntityView` item used to determine the namespace of the DBContext. The DBContext name itself is determined from the EDMX file.
+   * `CustomToolNamespace` - Property of the `EntityView` item used to determine the namespace of the DBContext. The DBContext name itself is determined from the EDMX file.
 
 
     
