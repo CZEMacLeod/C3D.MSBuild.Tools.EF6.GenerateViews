@@ -72,6 +72,17 @@
         PackagePath="tools\$(TargetFramework)\%(RecursiveDir)%(Filename)%(Extension)"
         Condition="'$(TargetFramework)'=='netstandard2.1'" />
     </ItemGroup>
+    <ItemGroup>
+      <_Temp Remove="@(_Temp)" />
+    </ItemGroup>
+    <RemoveDuplicates Inputs="@(BuildOutputInPackage)">
+      <Output TaskParameter="Filtered" ItemName="_Temp" />
+      <Output TaskParameter="HadAnyDuplicates" PropertyName="_HadAnyDuplicates" />
+    </RemoveDuplicates>
+    <ItemGroup Condition="$(_HadAnyDuplicates)">
+      <BuildOutputInPackage Remove="@(BuildOutputInPackage)" />
+      <BuildOutputInPackage Include="@(_Temp)" />
+    </ItemGroup>
     <Message Text="@(BuildOutputInPackage)" Importance="high" />
   </Target>
 
