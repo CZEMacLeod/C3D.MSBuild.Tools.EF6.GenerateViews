@@ -13,9 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="C3D.MSBuild.Tools.EF6.GenerateViews" Version="6.4.3-gd0c90ed8c3">
+    <PackageReference Include="C3D.MSBuild.Tools.EF6.GenerateViews" Version="6.4.12-g55b1fe29c3">
       <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
     <PackageReference Include="EntityFramework" Version="6.4.0" />
   </ItemGroup>
