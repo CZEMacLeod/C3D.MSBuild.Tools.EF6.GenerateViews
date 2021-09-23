@@ -1,0 +1,17 @@
+<Project>
+  <PropertyGroup>
+    <DefaultItemExcludes>*log</DefaultItemExcludes>
+    <MSBuildTreatWarningsAsErrors>true</MSBuildTreatWarningsAsErrors>
+    <LangVersion>Latest</LangVersion>
+    <PackageOutputPath Condition="'$(PackageOutputPath)'==''">$(MSBuildThisFileDirectory)packages\</PackageOutputPath>
+    <EnableDefaultNoneItems>false</EnableDefaultNoneItems>
+    <NoWarn>$(NoWarn);NU5128;SA0001</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageTag Include="C3D" />
+    <PackageTag Include="Cloud3D" />
+    <PackageTag Include="MSBuild" />
+    <PackageTag Include="BuildTasks" />
+  </ItemGroup>
+</Project>

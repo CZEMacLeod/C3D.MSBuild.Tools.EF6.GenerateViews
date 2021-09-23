@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net472;netstandard2.1</TargetFrameworks>
+    <AssemblyTitle>Cloud3D EntityFramework 6 ViewGenerator</AssemblyTitle>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Build\**\*.*" Pack="true" PackagePath="build\%(RecursiveDir)%(Filename)%(Extension)" />
+    <Content Include="Build\**\*.*" Pack="true" PackagePath="buildCrossTargeting\%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageTag Include="EF6" />
+    <PackageTag Include="EntityViewGenerator" />
+    <PackageTag Include="EDMX" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <IsTool>false</IsTool>
+    <NoPackageAnalysis>true</NoPackageAnalysis>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <DevelopmentDependency>true</DevelopmentDependency>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <MSBuildPackageVersion>16.9.0</MSBuildPackageVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.AzureRepos.Git" Version="1.0.0" />
+    <PackageReference Include="Nerdbank.GitVersioning" Version="3.4.194" />
+    <PackageReference Include="Nerdbank.MSBuildExtension" Version="0.1.20-beta" />
+    <PackageReference Include="Microsoft.Build.Framework" PrivateAssets="All" Version="$(MSBuildPackageVersion)" />
+    <PackageReference Include="Microsoft.Build.Utilities.Core" PrivateAssets="All" Version="$(MSBuildPackageVersion)" />
+    <PackageReference Include="Microsoft.Build.Tasks.Core" PrivateAssets="All" Version="$(MSBuildPackageVersion)" />
+    <PackageReference Include="EntityFramework" PrivateAssets="All" IncludeAssets="All" Version="6.4.0">
+      <GeneratePathProperty>true</GeneratePathProperty>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="version.json" />
+  </ItemGroup>
+
+</Project>
