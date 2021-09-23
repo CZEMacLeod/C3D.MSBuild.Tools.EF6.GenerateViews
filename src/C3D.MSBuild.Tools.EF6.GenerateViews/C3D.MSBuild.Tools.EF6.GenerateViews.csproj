@@ -46,6 +46,12 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.1'">
+    <PackageReference Include="System.Data.SqlClient" PrivateAssets="All" IncludeAssets="All" Version="4.8.0">
+      <GeneratePathProperty>true</GeneratePathProperty>
+    </PackageReference>
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);GetMyPackageFiles</TargetsForTfmSpecificBuildOutput>
   </PropertyGroup>
@@ -58,6 +64,10 @@
         PackagePath="tools\$(TargetFramework)\%(RecursiveDir)%(Filename)%(Extension)"
         Condition="'$(TargetFramework)'=='net472'" />
       <BuildOutputInPackage Include="$(PkgEntityFramework)/lib\netstandard2.1\**\*.dll"
+        Pack="true"
+        PackagePath="tools\$(TargetFramework)\%(RecursiveDir)%(Filename)%(Extension)"
+        Condition="'$(TargetFramework)'=='netstandard2.1'" />
+      <BuildOutputInPackage Include="$(PkgSystem_Data_SqlClient)/lib\netstandard2.0\**\*.dll"
         Pack="true"
         PackagePath="tools\$(TargetFramework)\%(RecursiveDir)%(Filename)%(Extension)"
         Condition="'$(TargetFramework)'=='netstandard2.1'" />
