@@ -172,7 +172,7 @@ steps:
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
 
 - task: GithubRelease@0 
-  displayName: 'Create GitHub Release'
+  displayName: 'Create GitHub Release'      
   inputs:
     gitHubConnection: github-czemacleod
     repositoryName: CZEMacLeod/C3D.MSBuild.Tools.EF6.GenerateViews
