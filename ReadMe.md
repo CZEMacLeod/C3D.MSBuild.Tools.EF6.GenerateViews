@@ -2,6 +2,10 @@
 
 An MSBuild based implementation of the [`Entity Framework 6 Power Tools Community Edition`](https://github.com/ErikEJ/EntityFramework6PowerTools) `Generate Views` command.
 
+[![Build Status](https://dev.azure.com/flexviews/C3D.MSBuild.Tools.EF6.GenerateViews/_apis/build/status/CZEMacLeod.C3D.MSBuild.Tools.EF6.GenerateViews?branchName=main)](https://dev.azure.com/flexviews/C3D.MSBuild.Tools.EF6.GenerateViews/_build/latest?definitionId=74&branchName=main)
+[![NuGet package](https://img.shields.io/nuget/v/C3D.MSBuild.Tools.EF6.GenerateViews.svg)](https://nuget.org/packages/C3D.MSBuild.Tools.EF6.GenerateViews)
+[![NuGet downloads](https://img.shields.io/nuget/dt/C3D.MSBuild.Tools.EF6.GenerateViews.svg)](https://nuget.org/packages/C3D.MSBuild.Tools.EF6.GenerateViews)
+
 The samples folder shows the use of the package with NETFramework and NETCore (.Net 5)
 
 This is for EntityFramework 6 only - not EFCore
