@@ -9,6 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{A547D473
 		Directory.Build.Props = Directory.Build.Props
 		Directory.Build.Targets = Directory.Build.Targets
 		build\InstallCert.ps1 = build\InstallCert.ps1
+		nuget.config = nuget.config
 		build\RemoveCert.ps1 = build\RemoveCert.ps1
 		build\Test.snk = build\Test.snk
 	EndProjectSection
@@ -29,6 +30,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{64F17F2D-6
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "C3D.MSBuild.Tools.EF6.GenerateViews", "src\C3D.MSBuild.Tools.EF6.GenerateViews\C3D.MSBuild.Tools.EF6.GenerateViews.csproj", "{76B9485A-002F-4036-A3C7-74D723A7A610}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{80B47DDE-BD61-4BDA-92E2-E8531B2386AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NETCoreConsoleApp", "samples\NETCoreConsoleApp\NETCoreConsoleApp.csproj", "{443911E9-9AAA-4449-9733-60BB973021A1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NETFrameworkConsoleApp", "samples\NETFrameworkConsoleApp\NETFrameworkConsoleApp.csproj", "{6CFBFB63-A369-4E6B-AA8B-F2B07A0373FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,12 +46,20 @@ Global
 		{76B9485A-002F-4036-A3C7-74D723A7A610}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76B9485A-002F-4036-A3C7-74D723A7A610}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76B9485A-002F-4036-A3C7-74D723A7A610}.Release|Any CPU.Build.0 = Release|Any CPU
+		{443911E9-9AAA-4449-9733-60BB973021A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{443911E9-9AAA-4449-9733-60BB973021A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{443911E9-9AAA-4449-9733-60BB973021A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CFBFB63-A369-4E6B-AA8B-F2B07A0373FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CFBFB63-A369-4E6B-AA8B-F2B07A0373FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CFBFB63-A369-4E6B-AA8B-F2B07A0373FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{76B9485A-002F-4036-A3C7-74D723A7A610} = {E9CAD609-B2BF-42DD-83D4-4175F65CB9A6}
+		{443911E9-9AAA-4449-9733-60BB973021A1} = {80B47DDE-BD61-4BDA-92E2-E8531B2386AA}
+		{6CFBFB63-A369-4E6B-AA8B-F2B07A0373FB} = {80B47DDE-BD61-4BDA-92E2-E8531B2386AA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3858E63C-C6E7-4355-AB43-F79C83A17238}

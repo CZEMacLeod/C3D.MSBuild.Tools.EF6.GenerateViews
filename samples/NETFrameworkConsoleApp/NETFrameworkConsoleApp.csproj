@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net48</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EntityView Include="Models\NETFrameworkConsoleApp.edmx">
+      <Generator></Generator>
+      <CustomToolNamespace>NETFrameworkConsoleApp.Models</CustomToolNamespace>
+    </EntityView>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="C3D.MSBuild.Tools.EF6.GenerateViews" Version="6.4.3-gd0c90ed8c3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="EntityFramework" Version="6.4.0" />
+  </ItemGroup>
+
+</Project>

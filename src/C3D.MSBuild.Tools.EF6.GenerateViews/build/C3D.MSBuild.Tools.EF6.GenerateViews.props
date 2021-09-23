@@ -7,8 +7,8 @@
     <NugetPackagesPath Condition="'$(NuGetPackageRoot)' != ''">$(NuGetPackageRoot)</NugetPackagesPath>
     <NugetPackagesPath Condition="'$(NugetPackagesPath)' == ''">$([System.IO.Path]::GetFullPath($([System.IO.Path]::Combine($(MSBuildThisFileDirectory),'..\..\'))))</NugetPackagesPath>
 
-    <EntityFramework6ViewGeneratorPath Condition="'$(MSBuildRuntimeType)'=='Full'">$([System.IO.Path]::GetFullPath($([System.IO.Path]::Combine($(MSBuildThisFileDirectory),'net472\'))))</EntityFramework6ViewGeneratorPath>
-    <EntityFramework6ViewGeneratorPath Condition="'$(MSBuildRuntimeType)'=='Core'">$([System.IO.Path]::GetFullPath($([System.IO.Path]::Combine($(MSBuildThisFileDirectory),'netstandard2.1\')))) </EntityFramework6ViewGeneratorPath>
+    <EntityFramework6GenerateViewsPath Condition="'$(MSBuildRuntimeType)'=='Full'">$([System.IO.Path]::GetFullPath($([System.IO.Path]::Combine($(MSBuildThisFileDirectory),'..\tools\net472\'))))</EntityFramework6GenerateViewsPath>
+    <EntityFramework6GenerateViewsPath Condition="'$(MSBuildRuntimeType)'=='Core'">$([System.IO.Path]::GetFullPath($([System.IO.Path]::Combine($(MSBuildThisFileDirectory),'..\tools\netstandard2.1\')))) </EntityFramework6GenerateViewsPath>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(BuildingInsideVisualStudio)'=='true'">

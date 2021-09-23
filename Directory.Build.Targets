@@ -68,7 +68,7 @@
     <Message Text="Package Tags: $(PackageTags)" Importance="high" />
   </Target>
 
-  <Target Name="SetPackageDescription" DependsOnTargets="SetAssemblyVersions">
+  <Target Name="SetPackageDescription" DependsOnTargets="GetBuildVersion">
     <PropertyGroup>
       <PackageDescription>
         Assembly Version: $(AssemblyVersion)
