@@ -2,7 +2,8 @@
 
   <PropertyGroup>
     <TargetFrameworks>net472;netstandard2.1</TargetFrameworks>
-    <AssemblyTitle>Cloud3D EntityFramework 6 ViewGenerator</AssemblyTitle>
+    <AssemblyTitle>Cloud3D EntityFramework 6 View Generator</AssemblyTitle>
+    <AssemblyDescription>EntityFramework 6 View Generator MSBuild Task</AssemblyDescription>
   </PropertyGroup>
 
   <ItemGroup>

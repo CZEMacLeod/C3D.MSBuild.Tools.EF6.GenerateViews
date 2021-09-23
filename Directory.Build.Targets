@@ -71,11 +71,11 @@
   <Target Name="SetPackageDescription" DependsOnTargets="GetBuildVersion">
     <PropertyGroup>
       <PackageDescription>
-        Assembly Version: $(AssemblyVersion)
-        File Version: $(AssemblyFileVersion)
-        Informational Version: $(AssemblyInformationalVersion)
-        Build Configuration: $(Configuration)
-        $(AssemblyDescription)
+Assembly Version: $(AssemblyVersion)
+File Version: $(AssemblyFileVersion)
+Informational Version: $(AssemblyInformationalVersion)
+Build Configuration: $(Configuration)
+$(AssemblyDescription)
       </PackageDescription>
     </PropertyGroup>
     <Message Text="Package Description: $(PackageDescription)" Importance="high" />

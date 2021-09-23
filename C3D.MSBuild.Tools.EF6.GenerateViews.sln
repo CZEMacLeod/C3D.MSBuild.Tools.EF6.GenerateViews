@@ -9,7 +9,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{A547D473
 		Directory.Build.Props = Directory.Build.Props
 		Directory.Build.Targets = Directory.Build.Targets
 		build\InstallCert.ps1 = build\InstallCert.ps1
-		nuget.config = nuget.config
 		build\RemoveCert.ps1 = build\RemoveCert.ps1
 		build\Test.snk = build\Test.snk
 	EndProjectSection
@@ -32,7 +31,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "C3D.MSBuild.Tools.EF6.Gener
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{80B47DDE-BD61-4BDA-92E2-E8531B2386AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NETCoreConsoleApp", "samples\NETCoreConsoleApp\NETCoreConsoleApp.csproj", "{443911E9-9AAA-4449-9733-60BB973021A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NETCoreConsoleApp", "samples\NETCoreConsoleApp\NETCoreConsoleApp.csproj", "{443911E9-9AAA-4449-9733-60BB973021A1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NETFrameworkConsoleApp", "samples\NETFrameworkConsoleApp\NETFrameworkConsoleApp.csproj", "{6CFBFB63-A369-4E6B-AA8B-F2B07A0373FB}"
 EndProject
