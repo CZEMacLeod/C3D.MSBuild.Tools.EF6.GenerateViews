@@ -58,7 +58,7 @@ steps:
   displayName: 'Install Certificate'
   inputs:
     targetType: 'filePath'
-    filePath: ImportCert.ps1
+    filePath: 'build/ImportCert.ps1'
   env:
     password: $(pfx-password)
     pfx: $(c3d-codesign)
@@ -187,6 +187,6 @@ steps:
   displayName: 'Remove Cert'
   inputs:
     targetType: filePath
-    filePath: 'RemoveCert.ps1'
+    filePath: 'build/RemoveCert.ps1'
     arguments: '-thumb $(app_pfx_thumbprint)'
   condition: always()
