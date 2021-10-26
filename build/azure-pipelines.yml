@@ -19,7 +19,7 @@ pool:
 
 variables:
 - group: Github-Packages
-- group: Signing
+- group: 'c3d-devops'
 - name: solution
   value: 'C3D.MSBuild.Tools.EF6.GenerateViews.sln'
 - name: buildPlatform
@@ -30,6 +30,8 @@ variables:
   value: '$(Agent.MachineName)'
 - name: buildUser
   value: '$(Build.QueuedBy)'
+- name: 'timestamper'
+  value: 'http://timestamp.comodoca.com'
 
 steps:
 - checkout: self
@@ -37,14 +39,14 @@ steps:
   submodules: true
   persistCredentials: true
 
+- script: |
+    git config --global user.email "support@cloud3d.ltd"
+    git config --global user.name "Agent - $(Agent.Name)"
+  workingDirectory: $(Build.SourcesDirectory)
+  displayName: 'Git Configure'
+
 - powershell: 'Write-Host ("##vso[task.setvariable variable=MSBuildEmitSolution;]0")'
   displayName: 'Ensure MSBuildEmitSolution is not set'
-
-- task: DownloadSecureFile@1
-  displayName: 'Download secure file PFX'
-  name: app_pfx
-  inputs:
-    secureFile: 'Cloud3D-codesign.pfx'
 
 - task: DownloadSecureFile@1
   displayName: 'Download secure file SNK'
@@ -53,15 +55,17 @@ steps:
     secureFile: 'cloud3d-codesign.snk'
 
 - task: PowerShell@2
-  displayName: 'Install Cert'
+  displayName: 'Install Certificate'
   inputs:
-    targetType: filePath
-    filePath: 'build/InstallCert.ps1'
-    arguments: '-pfxpath $(app_pfx.secureFilePath) -password $(pfx_password)'
+    targetType: 'filePath'
+    filePath: ImportCert.ps1
+  env:
+    password: $(pfx-password)
+    pfx: $(c3d-codesign)
 
 - task: NuGetToolInstaller@0
   inputs:
-    versionSpec: 5.10.0
+    versionSpec: 5.11.0
 
 - task: NuGetCommand@2
   inputs:
@@ -183,6 +187,6 @@ steps:
   displayName: 'Remove Cert'
   inputs:
     targetType: filePath
-    filePath: 'build/RemoveCert.ps1'
-    arguments: '-pfxpath $(app_pfx.secureFilePath) -password $(pfx_password)'
+    filePath: 'RemoveCert.ps1'
+    arguments: '-thumb $(app_pfx_thumbprint)'
   condition: always()
