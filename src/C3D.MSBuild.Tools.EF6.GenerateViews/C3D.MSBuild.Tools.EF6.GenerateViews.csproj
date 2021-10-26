@@ -1,104 +1,107 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFrameworks>net472;netstandard2.1</TargetFrameworks>
-    <AssemblyTitle>Cloud3D EntityFramework 6 View Generator</AssemblyTitle>
-    <AssemblyDescription>EntityFramework 6 View Generator MSBuild Task</AssemblyDescription>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFrameworks>net472;netstandard2.1</TargetFrameworks>
+		<AssemblyTitle>Cloud3D EntityFramework 6 View Generator</AssemblyTitle>
+		<AssemblyDescription>EntityFramework 6 View Generator MSBuild Task</AssemblyDescription>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Content Include="build\**\*.*" Pack="true" PackagePath="build\%(RecursiveDir)%(Filename)%(Extension)" />
-    <Content Include="buildCrossTargeting\**\*.*" Pack="true" PackagePath="buildCrossTargeting\%(RecursiveDir)%(Filename)%(Extension)" />
-  </ItemGroup>
+	<ItemGroup>
+		<Content Include="build\**\*.*" Pack="true" PackagePath="build\%(RecursiveDir)%(Filename)%(Extension)" />
+		<Content Include="buildCrossTargeting\**\*.*" Pack="true" PackagePath="buildCrossTargeting\%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageTag Include="EF6" />
-    <PackageTag Include="EntityViewGenerator" />
-    <PackageTag Include="EDMX" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageTag Include="EF6" />
+		<PackageTag Include="EntityViewGenerator" />
+		<PackageTag Include="EDMX" />
+	</ItemGroup>
 
-  <PropertyGroup>
-    <IsTool>false</IsTool>
-    <BuildOutputTargetFolder>tools</BuildOutputTargetFolder>
-    <NoPackageAnalysis>true</NoPackageAnalysis>
-    <!--<IncludeBuildOutput>true</IncludeBuildOutput>-->
-    <DevelopmentDependency>true</DevelopmentDependency>
-    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
-  </PropertyGroup>
+	<PropertyGroup>
+		<IsTool>false</IsTool>
+		<BuildOutputTargetFolder>tools</BuildOutputTargetFolder>
+		<NoPackageAnalysis>true</NoPackageAnalysis>
+		<!--<IncludeBuildOutput>true</IncludeBuildOutput>-->
+		<DevelopmentDependency>true</DevelopmentDependency>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+		<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+		<GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+	</PropertyGroup>
 
-  <PropertyGroup>
-    <MSBuildPackageVersion>16.9.0</MSBuildPackageVersion>
-  </PropertyGroup>
+	<PropertyGroup>
+		<MSBuildPackageVersion>16.9.0</MSBuildPackageVersion>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" PrivateAssets="All"  />
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All"  />
-    <PackageReference Include="Nerdbank.GitVersioning" Version="3.4.194" PrivateAssets="All"  />
-    <!--<PackageReference Include="Nerdbank.MSBuildExtension" Version="0.1.20-beta" PrivateAssets="All"  />-->
-    <PackageReference Include="Microsoft.Build.Framework" PrivateAssets="All" Version="$(MSBuildPackageVersion)" />
-    <PackageReference Include="Microsoft.Build.Utilities.Core" PrivateAssets="All" Version="$(MSBuildPackageVersion)" />
-    <PackageReference Include="Microsoft.Build.Tasks.Core" PrivateAssets="All" Version="$(MSBuildPackageVersion)" />
-    <PackageReference Include="EntityFramework" PrivateAssets="All" IncludeAssets="All" Version="6.4.0">
-      <GeneratePathProperty>true</GeneratePathProperty>
-    </PackageReference>
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" PrivateAssets="All"  />
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All"  />
+		<PackageReference Include="Nerdbank.GitVersioning" Version="3.4.194" PrivateAssets="All"  />
+		<!--<PackageReference Include="Nerdbank.MSBuildExtension" Version="0.1.20-beta" PrivateAssets="All"  />-->
+		<PackageReference Include="Microsoft.Build.Framework" PrivateAssets="All" Version="$(MSBuildPackageVersion)" />
+		<PackageReference Include="Microsoft.Build.Utilities.Core" PrivateAssets="All" Version="$(MSBuildPackageVersion)" />
+		<PackageReference Include="Microsoft.Build.Tasks.Core" PrivateAssets="All" Version="$(MSBuildPackageVersion)" />
+		<PackageReference Include="EntityFramework" PrivateAssets="All" IncludeAssets="All" Version="6.4.0">
+			<GeneratePathProperty>true</GeneratePathProperty>
+		</PackageReference>
+	</ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.1'">
-    <PackageReference Include="System.Data.SqlClient" PrivateAssets="All" IncludeAssets="All" Version="4.8.0">
-      <GeneratePathProperty>true</GeneratePathProperty>
-    </PackageReference>
-  </ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)'=='netstandard2.1'">
+		<PackageReference Include="System.Data.SqlClient" PrivateAssets="All" IncludeAssets="All" Version="4.8.0">
+			<GeneratePathProperty>true</GeneratePathProperty>
+		</PackageReference>
+	</ItemGroup>
 
-  <PropertyGroup>
-    <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);GetMyPackageFiles</TargetsForTfmSpecificBuildOutput>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);GetMyPackageFiles</TargetsForTfmSpecificBuildOutput>
+	</PropertyGroup>
 
-  <Target Name="GetMyPackageFiles">
-    <Message Text="$(TargetFramework)" Importance="high" />
-    <ItemGroup>
-      <BuildOutputInPackage Include="$(PkgEntityFramework)\lib\net40\**\*.dll"
-        Pack="true"
-        PackagePath="tools\$(TargetFramework)\%(RecursiveDir)%(Filename)%(Extension)"
-        Condition="'$(TargetFramework)'=='net472'" />
-      <BuildOutputInPackage Include="$(PkgEntityFramework)/lib\netstandard2.1\**\*.dll"
-        Pack="true"
-        PackagePath="tools\$(TargetFramework)\%(RecursiveDir)%(Filename)%(Extension)"
-        Condition="'$(TargetFramework)'=='netstandard2.1'" />
-      <BuildOutputInPackage Include="$(PkgSystem_Data_SqlClient)/lib\netstandard2.0\**\*.dll"
-        Pack="true"
-        PackagePath="tools\$(TargetFramework)\%(RecursiveDir)%(Filename)%(Extension)"
-        Condition="'$(TargetFramework)'=='netstandard2.1'" />
-    </ItemGroup>
-    <ItemGroup>
-      <_Temp Remove="@(_Temp)" />
-    </ItemGroup>
-    <RemoveDuplicates Inputs="@(BuildOutputInPackage)">
-      <Output TaskParameter="Filtered" ItemName="_Temp" />
-      <Output TaskParameter="HadAnyDuplicates" PropertyName="_HadAnyDuplicates" />
-    </RemoveDuplicates>
-    <ItemGroup Condition="$(_HadAnyDuplicates)">
-      <BuildOutputInPackage Remove="@(BuildOutputInPackage)" />
-      <BuildOutputInPackage Include="@(_Temp)" />
-    </ItemGroup>
-    <Message Text="@(BuildOutputInPackage)" Importance="high" />
-  </Target>
+	<Target Name="GetMyPackageFiles">
+		<Message Text="$(TargetFramework)" Importance="high" />
+		<ItemGroup>
+			<BuildOutputInPackage Include="$(PkgEntityFramework)\lib\net40\**\*.dll"
+			  Pack="true"
+			  PackagePath="tools\$(TargetFramework)\%(RecursiveDir)%(Filename)%(Extension)"
+			  Condition="'$(TargetFramework)'=='net472'" />
+			<BuildOutputInPackage Include="$(PkgEntityFramework)/lib\netstandard2.1\**\*.dll"
+			  Pack="true"
+			  PackagePath="tools\$(TargetFramework)\%(RecursiveDir)%(Filename)%(Extension)"
+			  Condition="'$(TargetFramework)'=='netstandard2.1'" />
+			<BuildOutputInPackage Include="$(PkgSystem_Data_SqlClient)/lib\netstandard2.0\**\*.dll"
+			  Pack="true"
+			  PackagePath="tools\$(TargetFramework)\%(RecursiveDir)%(Filename)%(Extension)"
+			  Condition="'$(TargetFramework)'=='netstandard2.1'" />
+		</ItemGroup>
+		<ItemGroup>
+			<_Temp Remove="@(_Temp)" />
+		</ItemGroup>
+		<RemoveDuplicates Inputs="@(BuildOutputInPackage)">
+			<Output TaskParameter="Filtered" ItemName="_Temp" />
+			<Output TaskParameter="HadAnyDuplicates" PropertyName="_HadAnyDuplicates" />
+		</RemoveDuplicates>
+		<ItemGroup Condition="$(_HadAnyDuplicates)">
+			<BuildOutputInPackage Remove="@(BuildOutputInPackage)" />
+			<BuildOutputInPackage Include="@(_Temp)" />
+		</ItemGroup>
+		<Message Text="@(BuildOutputInPackage)" Importance="high" />
+	</Target>
 
-  <!--<ItemGroup>
-    <None Include="($PkgEntityFramework)/lib/net40/**/*.dll" Condition="'$(TargetFramework)'=='net472'" />
-    <None Include="($PkgEntityFramework)/lib/netstandard2.1/**/*.dll" Condition="'$(TargetFramework)'=='netstandard2.1'" />
+	<!--<ItemGroup>
+	<None Include="($PkgEntityFramework)/lib/net40/**/*.dll" Condition="'$(TargetFramework)'=='net472'" />
+	<None Include="($PkgEntityFramework)/lib/netstandard2.1/**/*.dll" Condition="'$(TargetFramework)'=='netstandard2.1'" />
   </ItemGroup>-->
 
-  <Target Name="RemoveFrameworkDependencies" AfterTargets="_WalkEachTargetPerFramework">
-    <ItemGroup>
-      <_FrameworkAssemblyReferences Remove="@(_FrameworkAssemblyReferences)" />
-    </ItemGroup>
-  </Target>
+	<Target Name="RemoveFrameworkDependencies" AfterTargets="_WalkEachTargetPerFramework">
+		<ItemGroup>
+			<_FrameworkAssemblyReferences Remove="@(_FrameworkAssemblyReferences)" />
+		</ItemGroup>
+	</Target>
 
-  <ItemGroup>
-    <None Include="version.json" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Include="version.json" />
+		<None Include="..\..\README.md" Pack="true" PackagePath="\" />
+		<None Include="..\CONTRIBUTING.md" />
+	</ItemGroup>
 
 </Project>
