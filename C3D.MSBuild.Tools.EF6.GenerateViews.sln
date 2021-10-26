@@ -23,8 +23,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E9CAD609-B2B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{64F17F2D-6DBF-460D-AAA3-1B5A31BE3ACF}"
 	ProjectSection(SolutionItems) = preProject
+		CONTRIBUTING.md = CONTRIBUTING.md
 		LICENSE.txt = LICENSE.txt
-		ReadMe.md = ReadMe.md
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "C3D.MSBuild.Tools.EF6.GenerateViews", "src\C3D.MSBuild.Tools.EF6.GenerateViews\C3D.MSBuild.Tools.EF6.GenerateViews.csproj", "{76B9485A-002F-4036-A3C7-74D723A7A610}"
